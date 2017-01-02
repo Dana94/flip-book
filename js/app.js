@@ -24,9 +24,9 @@ button1.addEventListener('click', change1);
 
 //second part
 
-let start = document.getElementById('start');
+let start = document.getElementById('start-stop-2');
 
-let stop = document.getElementById('stop');
+//let stop = document.getElementById('stop');
 
 let spot2 = document.getElementById('img-place-2');
 
@@ -44,15 +44,16 @@ function change2(){
 let timer;
 
 function startTimer(){
+	start.removeEventListener('click', startTimer);
+	start.addEventListener('click', stopTimer);
 	timer = window.setInterval(change2, 300);
 }
 
 function stopTimer(){
 	window.clearInterval(timer);
+	start.addEventListener('click', startTimer);
 }
-
-
 
 start.addEventListener('click', startTimer);
 
-stop.addEventListener('click', stopTimer);
+//stop.addEventListener('click', stopTimer);
